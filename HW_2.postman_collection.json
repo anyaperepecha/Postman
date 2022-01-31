@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "79ab2c75-1f48-47d6-aee9-89241c48488a",
-		"name": "HW_2_Perepecha",
+		"name": "HW_2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -14,11 +14,15 @@
 						"exec": [
 							"// 1. Отправить запрос.\r",
 							"// 2. Статус код 200\r",
-							"// 3. Проверить, что в body приходит правильный string.\r",
-							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"})"
+							"})\r",
+							"\r",
+							"// 3. Проверить, что в body приходит правильный string.\r",
+							"pm.test(\"Body string matches\", function() {\r",
+							"    pm.expect(pm.response.text()).to.include(\"This is the first responce from server!\")\r",
+							"})\r",
+							""
 						],
 						"type": "text/javascript"
 					}
